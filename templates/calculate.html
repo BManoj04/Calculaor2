@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+
+    <h1><u>CALCULATOR</u></h1><br><br>
+    <form method="POST" action="/" novalidate>
+        {{  var.csrf_token  }}
+        {{  var.number1(size=30)  }}
+        {%  for err in var.number1.errors  %}
+        <span style="color:red">{{  err  }}</span>
+        {%  endfor  %}<br><br>
+        {{  var.sel  }}<br><br>
+        {{  var.number2(size=30)  }}
+        {%  for err in var.number2.errors  %}
+        <span style="color:red">{{  err  }}</span>
+        {%  endfor  %}<br><br>
+        {{  var.submit  }}<br><br>
+        {{  var.res.data  }}
+    </form>
+</body>
+</html>
